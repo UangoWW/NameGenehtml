@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Random Name Generator</title>
+	<style>
+		body {
+			background-color: #f0f0f0;
+			font-family: Arial, Helvetica, sans-serif;
+			margin: 0;
+			padding: 0;
+		}
+		.container {
+			max-width: 800px;
+			margin: 0 auto;
+			padding: 20px;
+			background-color: #fff;
+			box-shadow: 0px 2px 6px rgba(0,0,0,0.3);
+			border-radius: 5px;
+			text-align: center;
+		}
+		h1 {
+			color: #5f5f5f;
+		}
+		p {
+			font-size: 18px;
+			margin: 10px 0;
+			color: #444;
+		}
+		button {
+			background-color: #4285f4;
+			color: #fff;
+			border: none;
+			padding: 10px 20px;
+			font-size: 18px;
+			border-radius: 3px;
+			cursor: pointer;
+			margin-top: 20px;
+		}
+		button:hover {
+			background-color: #3367d6;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<h1>Random Name Generator</h1>
+		<p>This program generates random combinations of adjectives, nouns, and verbs to create unique and fun names. Enter the number of names that you want to generate below:</p>
+		<input type="number" id="num-names" min="1">
+		<button onclick="generateNames()">Generate Names</button>
+		<div id="output"></div>
+	</div>
+	<script>
+	var adj = ["美味的", "美丽的", "可爱的", "可笑的", "可恶的", "可撅的", "伤心的", "伤感的", "高兴的", "狂笑的", "憨憨的", "珍贵的", "野生的", "彩色的", "生气的", "智能的", "尖锐的", "恶臭的", "阴险的", "烦人的", "巨大的", "无聊的", "自由♂的", "闪亮的", "神秘的"];
+	var n = ["蛇将", "电脑", "美人鱼", "公主", "铅笔", "先辈", "剪刀", "杀手兔", "海豚", "僵尸", "纸巾", "三角函数", "等差数列", "小猪", "教导主任", "铅笔盒", "武装直升机", "按钮", "墨水", "蝙蝠", "小马", "男孩", "马桶", "大便", "茄子", "孔子"];
+	var v = ["学物理", "大哭", "写散文", "吟诗", "坐地铁", "下围棋", "弹钢琴", "吃辣条", "吃香蕉", "吃牛排", "学英语", "唱歌", "开挂", "写作文", "上厕所", "修马桶", "坐火车", "玩电脑", "乱跳", "潜水", "削铅笔", "学数学", "睡午觉", "发红包", "打牌"];
+	
+	function generateNames() {
+		var numNames = parseInt(document.getElementById("num-names").value);
+		var output = document.getElementById("output");
+		output.innerHTML = "";
+		for (var i = 0; i < numNames; i++) {
+			var a = Math.floor(Math.random() * adj.length);
+			var b = Math.floor(Math.random() * n.length);
+			var c = Math.floor(Math.random() * v.length);
+			output.innerHTML += "<p>" + adj[a] + n[b] + v[c] + "</p>";
+		}
+	}
+	</script>
+</body>
+</html>
